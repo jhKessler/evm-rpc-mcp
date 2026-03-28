@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "evm-rpc-mcp"
+version = "0.1.0"
+description = "MCP server providing read-only access to any EVM blockchain via JSON-RPC"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]",
+]
+
+[project.scripts]
+evm-rpc-mcp = "server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+only-include = ["server.py"]
